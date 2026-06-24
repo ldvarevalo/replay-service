@@ -5,11 +5,11 @@
     "projects/*"
   ],
   "scripts": {
-    "build": "lerna run build --parallel",
-    "start": "lerna run start --parallel",
-    "start:dev:api": "lerna run start:dev --scope=@replay-service/api",
-    "test": "lerna run test --parallel",
-    "test:e2e": "lerna run test:e2e --parallel",
+    "build": "npx lerna run build --parallel",
+    "start": "npx lerna run start --parallel",
+    "start:dev:api": "npx lerna run start:dev --scope=@replay-service/api",
+    "test": "npx lerna run test --parallel",
+    "test:e2e": "npx lerna run test:e2e --parallel",
     "lint": "eslint . --max-warnings=0",
     "typescript": "tsc --noEmit",
     "format": "prettier --write \"projects/**/*.ts\""

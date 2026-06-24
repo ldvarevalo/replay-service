@@ -1,0 +1,11 @@
+{
+  "name": "@replay-service/shared",
+  "private": true,
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --passWithNoTests",
+    "typescript": "tsc --noEmit"
+  }
+}

@@ -5,11 +5,11 @@
     "projects/*"
   ],
   "scripts": {
-    "build": "lerna run build --parallel",
-    "start": "lerna run start --parallel",
-    "start:dev:api": "lerna run start:dev --scope=@replay-service/api",
-    "test": "lerna run test --parallel",
-    "test:e2e": "lerna run test:e2e --parallel",
+    "build": "yarn workspaces run build",
+    "start": "yarn workspaces run start",
+    "start:dev:api": "yarn workspace @replay-service/api run start:dev",
+    "test": "yarn workspaces run test",
+    "test:e2e": "yarn workspace @replay-service/api run test:e2e",
     "lint": "eslint . --max-warnings=0",
     "typescript": "tsc --noEmit",
     "format": "prettier --write \"projects/**/*.ts\""

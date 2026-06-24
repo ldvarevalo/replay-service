@@ -5,11 +5,11 @@
     "projects/*"
   ],
   "scripts": {
-    "build": "lerna run build --parallel",
-    "start": "lerna run start --parallel",
-    "start:dev:api": "lerna run start:dev --scope=@replay-service/api",
-    "test": "lerna run test --parallel",
-    "test:e2e": "lerna run test:e2e --parallel",
+    "build": "cd projects/shared && npx tsc && cd ../api && npx nest build",
+    "start": "echo 'use yarn start:dev:api'",
+    "start:dev:api": "npx nest start --watch projects/api",
+    "test": "npx jest --passWithNoTests -c projects/api/jest.config.ts && npx jest --passWithNoTests -c projects/shared/jest.config.ts",
+    "test:e2e": "npx jest --config projects/api/jest-e2e.json --runInBand",
     "lint": "eslint . --max-warnings=0",
     "typescript": "tsc --noEmit",
     "format": "prettier --write \"projects/**/*.ts\""

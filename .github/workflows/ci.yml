@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 22
           cache: yarn
-      - run: yarn install --frozen-lockfile
+      - run: corepack enable && yarn install --frozen-lockfile
       - run: yarn lint
       - run: yarn typescript
       - run: yarn test

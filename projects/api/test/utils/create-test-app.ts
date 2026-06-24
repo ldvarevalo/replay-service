@@ -2,7 +2,7 @@ import { FastifyAdapter } from '@nestjs/platform-fastify';
 import { Test, TestingModule } from '@nestjs/testing';
 import type { NestFastifyApplication } from '@nestjs/platform-fastify';
 import { ConfigModule } from '@nestjs/config';
-import { AuthGuard } from '@replay-service/shared/src/auth';
+import { AuthGuard } from '@shared/auth';
 
 interface TestAppOptions {
   imports?: any[];

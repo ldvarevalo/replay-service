@@ -7,6 +7,6 @@ module.exports = {
   coverageDirectory: '../coverage',
   testEnvironment: 'node',
   moduleNameMapper: {
-    '^@replay-service/shared/(.*)$': '<rootDir>/../../shared/src/$1',
+    '^@shared/(.*)$': '<rootDir>/../../shared/src/$1',
   },
 };

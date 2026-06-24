@@ -1,6 +1,6 @@
 import type { NestFastifyApplication } from '@nestjs/platform-fastify';
-import { HttpClientModule } from '@replay-service/shared/src/clients/http-client/http-client.module';
-import { MusicSearchService } from '@replay-service/shared/src/services/music-search/music-search.service';
+import { HttpClientModule } from '@shared/clients/http-client/http-client.module';
+import { MusicSearchService } from '@shared/services/music-search/music-search.service';
 import { MusicController } from '../src/controllers/music/music.controller';
 import { createTestApp } from './utils/create-test-app';
 

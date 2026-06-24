@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
+import { SupabaseAuthModule } from '@shared/auth';
 import { MusicController } from './music.controller';
-import { MusicSearchService } from '@replay-service/shared/src/services/music-search/music-search.service';
-import { HttpClientModule } from '@replay-service/shared/src/clients/http-client/http-client.module';
+import { MusicSearchService } from '@shared/services/music-search/music-search.service';
+import { HttpClientModule } from '@shared/clients/http-client/http-client.module';
 
 @Module({
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, SupabaseAuthModule],
   controllers: [MusicController],
   providers: [MusicSearchService],
 })

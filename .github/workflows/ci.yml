@@ -22,10 +22,10 @@ jobs:
         with:
           node-version: 22
           cache: yarn
-      - run: corepack enable && yarn install --frozen-lockfile
-      - run: yarn lint
-      - run: yarn typescript
-      - run: yarn test
+      - run: yarn install --frozen-lockfile
+      - run: npx --yes eslint . --max-warnings=0
+      - run: npx --yes tsc --noEmit
+      - run: npx --yes lerna run test --parallel
 
   deploy:
     needs: [validate]

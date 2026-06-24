@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "build": "nest build",
+    "build": "npx nest build",
     "start": "node -r ts-node/register dist/api/src/main",
     "start:dev": "NODE_OPTIONS=\"-r ts-node/register\" nest start --watch",
     "start:prod": "node -r ts-node/register dist/api/src/main",

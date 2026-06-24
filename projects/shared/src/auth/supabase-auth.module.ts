@@ -9,7 +9,7 @@ import type { AuthStrategy } from './auth-strategy.interface';
     { provide: 'AuthStrategy', useExisting: SupabaseAuthStrategy },
     {
       provide: AuthGuard,
-      useFactory: (s: AuthStrategy) => new AuthGuard(s),
+      useFactory: (strategy: AuthStrategy) => new AuthGuard(strategy),
       inject: ['AuthStrategy'],
     },
   ],

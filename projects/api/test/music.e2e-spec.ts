@@ -27,8 +27,7 @@ describe('Music (e2e)', () => {
 
     expect(res.statusCode).toBe(200);
     const body = JSON.parse(res.payload);
-    expect(body).toHaveProperty('data');
-    expect(Array.isArray(body.data)).toBe(true);
+    expect(Array.isArray(body)).toBe(true);
   });
 
   it('GET /api/music/search without q returns 200', async () => {

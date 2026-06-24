@@ -14,7 +14,6 @@ WORKDIR /app
 
 COPY --from=build /app/projects/ ./projects/
 COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist 2>/dev/null || true
 
 EXPOSE 3001
 CMD ["node", "-r", "ts-node/register", "projects/api/dist/api/src/main"]

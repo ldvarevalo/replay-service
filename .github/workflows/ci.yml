@@ -26,3 +26,36 @@ jobs:
       - run: yarn lint
       - run: yarn typescript
       - run: yarn test
+
+  deploy:
+    needs: [validate]
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_LATEST_URL: ghcr.io/ldvarevalo/replay-service:latest
+      IMAGE_COMMIT_SHA_URL: ghcr.io/ldvarevalo/replay-service:${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ${{ env.IMAGE_LATEST_URL }},${{ env.IMAGE_COMMIT_SHA_URL }}
+          platforms: linux/amd64
+
+      - name: Trigger Render deploy
+        run: curl -X POST "$RENDER_DEPLOY_HOOK_URL"
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}

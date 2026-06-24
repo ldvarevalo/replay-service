@@ -1,0 +1,26 @@
+{
+  "name": "replay-service",
+  "private": true,
+  "workspaces": [
+    "projects/*"
+  ],
+  "scripts": {
+    "build": "lerna run build --parallel",
+    "start": "lerna run start --parallel",
+    "start:dev:api": "lerna run start:dev --scope=@replay-service/api",
+    "test": "lerna run test --parallel",
+    "test:e2e": "lerna run test:e2e --parallel",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write \"projects/**/*.ts\""
+  },
+  "devDependencies": {
+    "lerna": "^6.0.1",
+    "typescript": "^5.3.3",
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "typescript-eslint": "^8.0.0",
+    "prettier": "^3.2.0",
+    "rimraf": "^5.0.0"
+  },
+  "packageManager": "yarn@1.22.22"
+}

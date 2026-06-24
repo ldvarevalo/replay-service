@@ -5,6 +5,7 @@
     "lib": ["es2021"],
     "declaration": true,
     "strict": true,
+    "strictPropertyInitialization": false,
     "noImplicitAny": false,
     "strictNullChecks": true,
     "noUnusedLocals": false,
